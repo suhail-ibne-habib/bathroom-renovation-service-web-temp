@@ -90,11 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (servicesSection && serviceCards.length > 1) {
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: servicesSection,
-                start: "top top", // Pin when section reaches top
+                trigger: servicesSection.querySelector('.container-custom'),
+                start: "top top", // Pin when the header reaches the top of the screen
                 end: "+=1500", // Scroll duration for the pinning effect
                 scrub: 1,
-                pin: true,
+                pin: servicesSection,
                 anticipatePin: 1
             }
         });
@@ -129,10 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
             x: getScrollAmount,
             ease: "none",
             scrollTrigger: {
-                trigger: projectsSectionHorizontal,
+                trigger: projectsSectionHorizontal.querySelector('.container-custom'),
                 start: "top top",
                 end: () => `+=${Math.abs(getScrollAmount())}`,
-                pin: true,
+                pin: projectsSectionHorizontal,
                 scrub: 1,
                 invalidateOnRefresh: true,
                 anticipatePin: 1
