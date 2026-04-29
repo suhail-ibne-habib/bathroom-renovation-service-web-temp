@@ -1,0 +1,16 @@
+{
+  "name": "bath_renove",
+  "version": "1.0.0",
+  "description": "Bath Renovation Website",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./css/input.css -o ./css/styles.css --minify",
+    "watch:css": "npx tailwindcss -i ./css/input.css -o ./css/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

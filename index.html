@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquora - Premium Bath Renovations</title>
+    <meta name="description"
+        content="Expert bath renovation and remodeling services. Premium materials, professional installation, and satisfaction guaranteed.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0A1128',
+                            primary: '#00C853',
+                            light: '#F0F8FF',
+                            accent: '#00D1FF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply antialiased text-gray-800 bg-brand-light font-sans selection:bg-brand-primary selection:text-white;
+            }
+        }
+        @layer components {
+            .btn-primary {
+                @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-brand-primary hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+            }
+            .btn-outline {
+                @apply inline-flex items-center justify-center px-6 py-3 border-2 border-brand-primary text-base font-medium rounded-full text-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300;
+            }
+            .section-padding {
+                @apply py-20 lg:py-32;
+            }
+            .container-custom {
+                @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+            }
+            .heading-1 {
+                @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-dark mb-6;
+            }
+            .heading-2 {
+                @apply text-3xl sm:text-4xl font-bold tracking-tight text-brand-dark mb-8;
+            }
+            .gsap-reveal {
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="absolute w-full z-50 pt-6 transition-all duration-300" id="navbar">
+        <div class="container-custom">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-brand-primary flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        Aquora
+                    </a>
+                </div>
+
+                <!-- Desktop Menu Pill -->
+                <div class="hidden md:flex bg-white rounded-full p-1.5 items-center shadow-lg">
+                    <div class="flex space-x-2 px-4 items-center border-r border-gray-200">
+                        <a href="#services"
+                            class="text-sm text-gray-700 hover:text-black font-medium px-3 py-2 transition-colors">Services</a>
+                        <a href="#projects"
+                            class="text-sm text-gray-700 hover:text-black font-medium px-3 py-2 transition-colors">Projects</a>
+                        <a href="#pricing"
+                            class="text-sm text-gray-700 hover:text-black font-medium px-3 py-2 transition-colors">Pricing</a>
+                        <a href="#"
+                            class="text-sm text-gray-700 hover:text-black font-medium px-3 py-2 transition-colors flex items-center gap-1">All
+                            Page <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg></a>
+                    </div>
+                    <a href="#contact"
+                        class="bg-black text-white text-sm font-semibold rounded-full px-5 py-2.5 ml-2 flex items-center group hover:bg-gray-800 transition-colors">
+                        Book a Call
+                        <span
+                            class="ml-2 bg-white text-black rounded-full w-6 h-6 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center bg-white rounded-full p-2">
+                    <button id="mobile-menu-btn" class="text-black focus:outline-none p-1">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white mx-4 mt-2 rounded-2xl shadow-xl absolute w-[calc(100%-2rem)] left-0 top-full">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="#services"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-md">Services</a>
+                <a href="#projects"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-md">Projects</a>
+                <a href="#pricing"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-gray-50 rounded-md">Pricing</a>
+                <a href="#contact"
+                    class="block px-3 py-2 mt-4 text-center bg-black text-white rounded-full w-full font-semibold">Book
+                    a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+        <!-- Background Image & Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="./assets/images/hero_bg_green.png" alt="Bathroom Interior"
+                class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-black/30"></div>
+            <!-- Extra subtle gradient for text readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent"></div>
+        </div>
+
+        <div class="container-custom relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-8 items-end">
+                <div class="hero-content lg:col-span-7 pt-20">
+                    <h1
+                        class="text-5xl sm:text-6xl lg:text-[5.5rem] font-bold text-white leading-[1.1] mb-6 tracking-tight gsap-reveal">
+                        Reliable Plumbing Solutions, Anytime you Need Them
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-200 mb-10 max-w-xl gsap-reveal leading-relaxed">
+                        Expert plumbing services for homes and businesses. Fast, professional, and affordable — because
+                        leaks don't wait.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-8 mb-12 gsap-reveal">
+                        <a href="#contact"
+                            class="bg-white text-black font-semibold rounded-full pl-6 pr-2 py-2 flex items-center hover:bg-gray-100 transition-colors group shadow-lg">
+                            Book a Free Call
+                            <span
+                                class="ml-4 bg-black text-brand-primary rounded-full w-8 h-8 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </a>
+
+                        <div>
+                            <div class="flex items-center gap-1 mb-1 text-white">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="text-sm font-medium text-white">500+ Verified Reviews</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-end pb-8 gsap-reveal">
+                    <!-- Glassmorphism Card -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 w-full max-w-sm">
+                        <div class="flex items-start gap-4 mb-8">
+                            <div class="text-5xl font-bold text-white">50K+</div>
+                            <div class="text-sm text-gray-200 leading-tight pt-1">
+                                Cured satisfied<br>customer around the<br>globe
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex -space-x-3">
+                                <img class="w-10 h-10 rounded-full border-2 border-transparent object-cover"
+                                    src="https://i.pravatar.cc/100?img=4" alt="Customer">
+                                <img class="w-10 h-10 rounded-full border-2 border-transparent object-cover"
+                                    src="https://i.pravatar.cc/100?img=5" alt="Customer">
+                                <img class="w-10 h-10 rounded-full border-2 border-transparent object-cover"
+                                    src="https://i.pravatar.cc/100?img=6" alt="Customer">
+                                <img class="w-10 h-10 rounded-full border-2 border-transparent object-cover"
+                                    src="https://i.pravatar.cc/100?img=7" alt="Customer">
+                            </div>
+
+                            <a href="#contact"
+                                class="bg-white text-black font-semibold text-sm rounded-full pl-4 pr-1.5 py-1.5 flex items-center hover:bg-gray-100 transition-colors group shadow-lg">
+                                Contact Now
+                                <span
+                                    class="ml-2 bg-black text-brand-primary rounded-full w-6 h-6 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="section-padding bg-white relative">
+        <div class="container-custom">
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+                <div class="gsap-reveal order-2 lg:order-1">
+                    <p class="text-gray-600 font-medium mb-6 text-lg">/About us</p>
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-[1.2] mb-6">
+                        With over 15+ years of<br>experience, our team provides<br>top-quality services
+                    </h2>
+                    <p class="text-gray-500 text-lg mb-10 leading-relaxed max-w-lg">
+                        From faucet repairs to full remodel installations, we handle it all with precision. And
+                        Installation, repair, and maintenance for efficient hot water in your home or business.
+                    </p>
+
+                    <a href="#about"
+                        class="inline-flex items-center bg-black text-white font-semibold text-sm rounded-full pl-6 pr-2 py-2 group hover:bg-gray-800 transition-colors shadow-lg">
+                        Know more about us
+                        <span
+                            class="ml-4 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="relative gsap-reveal order-1 lg:order-2">
+                    <img src="./assets/images/about_plumber.png" alt="Professional Plumber"
+                        class="rounded-[2rem] w-full h-[500px] object-cover shadow-xl">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-gray-100 gsap-reveal">
+                <div class="text-center">
+                    <div class="text-5xl sm:text-6xl font-bold text-black mb-3 tracking-tight">15+</div>
+                    <div class="text-gray-600 font-medium">Years Combained Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl sm:text-6xl font-bold text-black mb-3 tracking-tight">1500+</div>
+                    <div class="text-gray-600 font-medium">Project completed</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl sm:text-6xl font-bold text-black mb-3 tracking-tight">98%+</div>
+                    <div class="text-gray-600 font-medium">Customer Satisfaction</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl sm:text-6xl font-bold text-black mb-3 tracking-tight">24/7</div>
+                    <div class="text-gray-600 font-medium">Always Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-choose-us" class="section-padding bg-white relative">
+        <div class="container-custom">
+            <div class="grid lg:grid-cols-2 gap-10">
+                <!-- Left Column -->
+                <div class="gsap-reveal flex flex-col justify-center">
+                    <p class="text-gray-600 font-medium mb-4 text-lg">/Why Choose us</p>
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">Why choose our Services
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-10 leading-relaxed max-w-md">
+                        We combine expertise, reliability, and care to deliver the best experience every time.
+                    </p>
+
+                    <!-- Small Cards Grid -->
+                    <div class="grid sm:grid-cols-2 gap-6 mb-8">
+                        <div
+                            class="border border-gray-200 rounded-[1.5rem] p-8 bg-white shadow-sm hover:shadow-md transition-shadow">
+                            <div class="mb-5 text-black">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Insured Professionals</h3>
+                            <p class="text-gray-500 leading-relaxed">Our plumbers are trained experts who follow
+                                industry</p>
+                        </div>
+
+                        <div
+                            class="border border-gray-200 rounded-[1.5rem] p-8 bg-white shadow-sm hover:shadow-md transition-shadow">
+                            <div class="mb-5 text-black">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Transparent Pricing</h3>
+                            <p class="text-gray-500 leading-relaxed">We believe in honesty. Every service comes with
+                                upfront</p>
+                        </div>
+                    </div>
+
+                    <!-- Large Dark Card -->
+                    <div class="bg-[#111] rounded-[1.5rem] p-8 sm:p-10 text-white">
+                        <h3 class="text-2xl font-bold mb-4">Work Backed by Customer Satisfaction</h3>
+                        <p class="text-gray-400 mb-8 leading-relaxed max-w-md">
+                            We ensure everything works perfectly and you're completely satisfied before we leave.
+                        </p>
+                        <a href="#services"
+                            class="inline-flex items-center bg-white text-black font-semibold text-sm rounded-full pl-6 pr-2 py-2 group hover:bg-gray-200 transition-colors">
+                            Explore all our services
+                            <span
+                                class="ml-4 bg-[#111] text-white rounded-full w-8 h-8 flex items-center justify-center group-hover:translate-x-1 transition-transform border border-gray-200">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column Image -->
+                <div class="gsap-reveal h-full relative rounded-[2rem] overflow-hidden min-h-[500px] lg:min-h-full">
+                    <img src="./assets/images/project_1.png" alt="Finished Bathroom Renovation"
+                        class="absolute inset-0 w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works (Timeline) -->
+    <section id="how-it-works" class="section-padding bg-[#0A0A0A] text-white relative">
+        <div class="container-custom">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-5 gsap-reveal">
+                    <p class="text-gray-400 font-medium mb-4 text-lg">/How it Works</p>
+                    <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+                        How Our Bath<br>Renovation Works
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-10 leading-relaxed max-w-md">
+                        A simple process designed to upgrade your bathroom quickly and hassle-free.
+                    </p>
+
+                    <a href="#services"
+                        class="inline-flex items-center bg-white text-black font-semibold text-sm rounded-full pl-6 pr-2 py-2 group hover:bg-gray-200 transition-colors">
+                        Explore all our services
+                        <span
+                            class="ml-4 bg-[#0A0A0A] text-white rounded-full w-8 h-8 flex items-center justify-center group-hover:translate-x-1 transition-transform border border-gray-700">
+                            <svg class="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Right Timeline -->
+                <div class="lg:col-span-7 relative" id="process-timeline">
+                    <!-- Vertical Line (Desktop only) -->
+                    <div class="hidden lg:block absolute left-[30px] top-12 bottom-12 w-[2px] bg-white/10">
+                        <div class="absolute top-0 left-0 w-full bg-brand-primary h-0 origin-top"
+                            id="timeline-progress"></div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Step 1 -->
+                        <div
+                            class="bg-[#1A1A1A] rounded-2xl p-8 border border-white/5 relative ml-0 lg:ml-16 process-step opacity-0 translate-y-8">
+                            <!-- Timeline Dot -->
+                            <div
+                                class="hidden lg:block absolute -left-[41px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(0,200,83,0.8)] process-dot scale-0 opacity-0">
+                            </div>
+
+                            <div class="text-brand-primary mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Schedule Your Consultation</h3>
+                            <p class="text-gray-400 leading-relaxed">Call us or book online at your convenience. Our
+                                team is available to discuss your vision and set up an appointment.</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div
+                            class="bg-[#1A1A1A] rounded-2xl p-8 border border-white/5 relative ml-0 lg:ml-16 process-step opacity-0 translate-y-8">
+                            <div
+                                class="hidden lg:block absolute -left-[41px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(0,200,83,0.8)] process-dot scale-0 opacity-0">
+                            </div>
+
+                            <div class="text-brand-primary mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Get a Clear Estimate</h3>
+                            <p class="text-gray-400 leading-relaxed">Our expert inspects the space, explains the design
+                                options, and provides an upfront quote with no hidden charges.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div
+                            class="bg-[#1A1A1A] rounded-2xl p-8 border border-white/5 relative ml-0 lg:ml-16 process-step opacity-0 translate-y-8">
+                            <div
+                                class="hidden lg:block absolute -left-[41px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(0,200,83,0.8)] process-dot scale-0 opacity-0">
+                            </div>
+
+                            <div class="text-brand-primary mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Professional Renovation & Peace of Mind</h3>
+                            <p class="text-gray-400 leading-relaxed">We complete the job efficiently and ensure
+                                everything works perfectly — backed by our satisfaction guarantee.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overlapping Services Section -->
+    <section id="services" class="section-padding bg-gray-50">
+        <div class="container-custom">
+            <!-- Section Header -->
+            <div class="w-full text-center mb-10 max-w-2xl mx-auto gsap-reveal">
+                <p class="text-gray-600 font-medium mb-4 text-lg">/Our Services</p>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">Our Bath Renovation Services
+                </h2>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    From complete structural remodels to quick visual updates, we provide reliable solutions for every
+                    bathroom need.
+                </p>
+            </div>
+
+            <!-- Cards Container (Mask) -->
+            <div
+                class="relative w-full max-w-5xl mx-auto rounded-[2rem] shadow-2xl border border-gray-100 overflow-hidden bg-white mb-16">
+
+                <!-- Card 1 -->
+                <div class="service-card relative z-10 w-full">
+                    <div class="grid lg:grid-cols-2 min-h-[400px]">
+                        <div class="p-10 lg:p-16 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold text-gray-900 mb-6">Full Bath Remodels</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                                Complete floor-to-ceiling renovations including layout changes, tiling, and premium
+                                fixture installations to build your ultimate sanctuary.
+                            </p>
+                            <div>
+                                <a href="#contact"
+                                    class="inline-flex items-center bg-black text-white font-semibold text-sm rounded-full pl-6 pr-2 py-2 group hover:bg-gray-800 transition-colors shadow-md">
+                                    Explore Service
+                                    <span
+                                        class="ml-4 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="h-64 lg:h-auto relative">
+                            <img src="./assets/images/project_1.png" alt="Full Bath Remodel"
+                                class="absolute inset-0 w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card absolute inset-0 z-20 w-full h-full bg-white transform translate-y-full">
+                    <div class="grid lg:grid-cols-2 h-full">
+                        <div class="p-10 lg:p-16 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold text-gray-900 mb-6">Tub-to-Shower Conversions</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                                Modernize your space by replacing old, bulky bathtubs with sleek, accessible, and
+                                luxurious walk-in showers.
+                            </p>
+                            <div>
+                                <a href="#contact"
+                                    class="inline-flex items-center bg-black text-white font-semibold text-sm rounded-full pl-6 pr-2 py-2 group hover:bg-gray-800 transition-colors shadow-md">
+                                    Explore Service
+                                    <span
+                                        class="ml-4 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="h-64 lg:h-auto relative">
+                            <img src="./assets/images/project_2.png" alt="Tub to Shower"
+                                class="absolute inset-0 w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card absolute inset-0 z-30 w-full h-full bg-white transform translate-y-full">
+                    <div class="grid lg:grid-cols-2 h-full">
+                        <div class="p-10 lg:p-16 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold text-gray-900 mb-6">Custom Fixtures & Vanities</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                                Upgrade your vanity, sinks, mirrors, and lighting for a refreshed, functional, and
+                                highly vibrant atmosphere.
+                            </p>
+                            <div>
+                                <a href="#contact"
+                                    class="inline-flex items-center bg-black text-white font-semibold text-sm rounded-full pl-6 pr-2 py-2 group hover:bg-gray-800 transition-colors shadow-md">
+                                    Explore Service
+                                    <span
+                                        class="ml-4 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="h-64 lg:h-auto relative">
+                            <img src="./assets/images/about_plumber.png" alt="Fixtures"
+                                class="absolute inset-0 w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section-padding bg-white">
+        <div class="container-custom">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-12 gsap-reveal">
+                <p class="text-gray-600 font-medium mb-4 text-sm">/Pricing Plan</p>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">Our Flexible Pricing plan
+                </h2>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    From quick fixes to complete overhauls, we offer transparent pricing that fits your renovation goals
+                    — and your budget.
+                </p>
+            </div>
+
+            <!-- Toggle -->
+            <div class="flex justify-center mb-16 gsap-reveal">
+                <div class="inline-flex bg-white border border-gray-200 rounded-full p-1">
+                    <button class="bg-[#111] text-white text-sm font-medium px-6 py-2 rounded-full">Single Bath</button>
+                    <button
+                        class="text-gray-600 hover:text-black text-sm font-medium px-6 py-2 rounded-full transition-colors">Multi
+                        Bath</button>
+                </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+                <!-- Basic Package -->
+                <div class="bg-[#F4FBF4] rounded-[2rem] p-8 lg:p-10 border border-gray-100 gsap-reveal">
+                    <h3 class="text-xl font-medium text-gray-900 mb-6">Basic Package</h3>
+                    <div class="flex items-start mb-8">
+                        <span class="text-lg font-medium text-gray-900 mt-1 mr-1">$</span>
+                        <span class="text-5xl lg:text-6xl font-bold text-gray-900">3,500</span>
+                        <span class="text-sm text-gray-500 self-end mb-2 ml-2">USD/Per project</span>
+                    </div>
+
+                    <a href="#contact"
+                        class="block w-full bg-[#DDF4E4] text-black text-center font-medium py-3.5 rounded-full mb-8 hover:bg-[#c9efd4] transition-colors">
+                        Get Started Now
+                    </a>
+
+                    <p class="text-sm text-gray-500 mb-6">Available features:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Standard fixture replacement</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Basic vanity & sink upgrade</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Fresh paint & caulking</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Standard project scheduling</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>1-Year craftsmanship warranty</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Standard Package -->
+                <div class="bg-[#111] rounded-[2rem] p-8 lg:p-10 shadow-2xl gsap-reveal">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-medium text-white">Standard Package</h3>
+                        <span class="bg-white text-black text-xs font-medium px-4 py-1.5 rounded-full">Most
+                            Popular</span>
+                    </div>
+
+                    <div class="flex items-start mb-8">
+                        <span class="text-lg font-medium text-white mt-1 mr-1">$</span>
+                        <span class="text-5xl lg:text-6xl font-bold text-white">8,500</span>
+                        <span class="text-sm text-gray-400 self-end mb-2 ml-2">USD/Per project</span>
+                    </div>
+
+                    <a href="#contact"
+                        class="block w-full bg-white text-black text-center font-medium py-3.5 rounded-full mb-8 hover:bg-gray-200 transition-colors">
+                        Get Started Now
+                    </a>
+
+                    <p class="text-sm text-gray-400 mb-6">Available features:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-white">
+                            <svg class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Everything in Basic</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-white">
+                            <svg class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Tub-to-shower conversion</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-white">
+                            <svg class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Custom floor & wall tiling</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-white">
+                            <svg class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Upgraded lighting & ventilation</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-white">
+                            <svg class="w-5 h-5 text-white shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>3-Year craftsmanship warranty</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="bg-[#F4FBF4] rounded-[2rem] p-8 lg:p-10 border border-gray-100 gsap-reveal">
+                    <h3 class="text-xl font-medium text-gray-900 mb-6">Premium Package</h3>
+                    <div class="flex items-start mb-8">
+                        <span class="text-lg font-medium text-gray-900 mt-1 mr-1">$</span>
+                        <span class="text-5xl lg:text-6xl font-bold text-gray-900">15,000</span>
+                        <span class="text-sm text-gray-500 self-end mb-2 ml-2">USD/Per project</span>
+                    </div>
+
+                    <a href="#contact"
+                        class="block w-full bg-[#DDF4E4] text-black text-center font-medium py-3.5 rounded-full mb-8 hover:bg-[#c9efd4] transition-colors">
+                        Get Started Now
+                    </a>
+
+                    <p class="text-sm text-gray-500 mb-6">Available features:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Everything in Standard</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Complete architectural redesign</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Luxury stone & marble surfaces</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Spa-like soaking tub & smart tech</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Lifetime craftsmanship warranty</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section-padding bg-[#111] overflow-hidden">
+        <div class="container-custom !px-0 lg:!px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 px-6 lg:px-0 gsap-reveal">
+                <p class="text-gray-400 font-medium mb-4 text-sm">/Our Recent Projects</p>
+                <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">Recent Bath Projects</h2>
+                <p class="text-gray-400 text-lg">From quick fixture updates to complete luxury remodels, here's a look
+                    at the quality work we deliver every day.</p>
+            </div>
+
+            <!-- Slider Container -->
+            <div class="projects-slider flex flex-nowrap gap-6 pb-12 px-6 lg:px-0 w-max"
+                style="scrollbar-width: none; -ms-overflow-style: none;">
+
+                <!-- Project 1 -->
+                <div
+                    class="relative shrink-0 w-[85vw] md:w-[700px] lg:w-[900px] h-[500px] lg:h-[600px] rounded-[2rem] overflow-hidden snap-center group">
+                    <img src="./assets/images/project_1.png" alt="Contemporary Master Bath"
+                        class="w-full h-full object-cover">
+                    <!-- Gradient Overlay -->
+                    <div
+                        class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                    </div>
+                    <!-- Content -->
+                    <div
+                        class="absolute inset-x-0 bottom-0 p-8 lg:p-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <h3 class="text-3xl lg:text-4xl font-bold text-white max-w-md leading-tight">Luxury Master Bath
+                            Retreat</h3>
+
+                        <div class="flex flex-col items-start md:items-end text-left md:text-right max-w-sm">
+                            <p class="text-gray-200 text-sm md:text-base mb-6 md:text-right text-left">Transformed a
+                                dated master suite into a luxury spa with a freestanding tub and heated marble floors.
+                            </p>
+                            <a href="#contact"
+                                class="bg-white text-black text-sm font-medium pl-6 pr-2 py-2 rounded-full inline-flex items-center group/btn hover:bg-gray-200 transition-colors">
+                                View Details
+                                <span
+                                    class="ml-4 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="relative shrink-0 w-[85vw] md:w-[700px] lg:w-[900px] h-[500px] lg:h-[600px] rounded-[2rem] overflow-hidden snap-center group">
+                    <img src="./assets/images/project_2.png" alt="Sleek Minimalist Oasis"
+                        class="w-full h-full object-cover">
+                    <!-- Gradient Overlay -->
+                    <div
+                        class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                    </div>
+                    <!-- Content -->
+                    <div
+                        class="absolute inset-x-0 bottom-0 p-8 lg:p-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <h3 class="text-3xl lg:text-4xl font-bold text-white max-w-md leading-tight">Sleek Minimalist
+                            Oasis</h3>
+
+                        <div class="flex flex-col items-start md:items-end text-left md:text-right max-w-sm">
+                            <p class="text-gray-200 text-sm md:text-base mb-6 md:text-right text-left">Complete overhaul
+                                focusing on dark aesthetics, featuring a custom floating vanity and premium brass
+                                fixtures.</p>
+                            <a href="#contact"
+                                class="bg-white text-black text-sm font-medium pl-6 pr-2 py-2 rounded-full inline-flex items-center group/btn hover:bg-gray-200 transition-colors">
+                                View Details
+                                <span
+                                    class="ml-4 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="relative shrink-0 w-[85vw] md:w-[700px] lg:w-[900px] h-[500px] lg:h-[600px] rounded-[2rem] overflow-hidden snap-center group">
+                    <img src="./assets/images/about_plumber.png" alt="Tub to Shower" class="w-full h-full object-cover">
+                    <!-- Gradient Overlay -->
+                    <div
+                        class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+                    </div>
+                    <!-- Content -->
+                    <div
+                        class="absolute inset-x-0 bottom-0 p-8 lg:p-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <h3 class="text-3xl lg:text-4xl font-bold text-white max-w-md leading-tight">Accessible Shower
+                            Upgrade</h3>
+
+                        <div class="flex flex-col items-start md:items-end text-left md:text-right max-w-sm">
+                            <p class="text-gray-200 text-sm md:text-base mb-6 md:text-right text-left">Modernized a
+                                cramped bathroom by removing an old tub and installing a spacious, glass-enclosed
+                                walk-in shower.</p>
+                            <a href="#contact"
+                                class="bg-white text-black text-sm font-medium pl-6 pr-2 py-2 rounded-full inline-flex items-center group/btn hover:bg-gray-200 transition-colors">
+                                View Details
+                                <span
+                                    class="ml-4 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <style>
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonial" class="section-padding bg-white">
+        <div class="container-custom">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 gsap-reveal">
+                <p class="text-gray-600 font-medium mb-4 text-sm">/Testimonial</p>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">What Our Customers Say</h2>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    We're proud to have earned the trust of homeowners and businesses through quality service and
+                    reliable results.
+                </p>
+            </div>
+
+            <!-- Grid Layout -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
+
+                <!-- Column 1 -->
+                <div class="flex flex-col gap-6 gsap-reveal">
+                    <!-- Text Card -->
+                    <div class="bg-[#F4FBF4] rounded-[2rem] p-8 border border-gray-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="w-12 h-12 bg-[#00C853] text-white rounded-full flex items-center justify-center font-bold text-xl shrink-0">
+                                ST
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Sarah Thompson</h4>
+                                <p class="text-sm text-gray-500">Homeowner</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            "We had a completely outdated master bath, and their team transformed it within two weeks.
+                            The new freestanding tub and custom tiling are absolutely gorgeous. Highly recommended!"
+                        </p>
+                    </div>
+                    <!-- Image Card -->
+                    <div class="rounded-[2rem] overflow-hidden h-[400px]">
+                        <img src="./assets/images/project_1.png" alt="Happy Customer Bathroom"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- Column 2 (Reversed order for masonry look) -->
+                <div class="flex flex-col gap-6 gsap-reveal md:mt-12">
+                    <!-- Image Card -->
+                    <div class="rounded-[2rem] overflow-hidden h-[400px]">
+                        <img src="./assets/images/about_plumber.png" alt="Renovation Work"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <!-- Text Card -->
+                    <div class="bg-[#F4FBF4] rounded-[2rem] p-8 border border-gray-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="w-12 h-12 bg-[#111] text-white rounded-full flex items-center justify-center font-bold text-xl shrink-0">
+                                EJ
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Emily Johnson</h4>
+                                <p class="text-sm text-gray-500">Office Manager</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            "We hired them for a full tub-to-shower conversion in our facility. The work was done on
+                            time, within budget, and the new accessible shower is exactly what we needed."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="flex flex-col gap-6 gsap-reveal">
+                    <!-- Text Card -->
+                    <div class="bg-[#F4FBF4] rounded-[2rem] p-8 border border-gray-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl shrink-0">
+                                MC
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Michael Carter</h4>
+                                <p class="text-sm text-gray-500">Restaurant Owner</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            "Our guest bathroom needed a quick refresh before a major event. They upgraded the vanity,
+                            lighting, and fixtures flawlessly. Very professional and dependable!"
+                        </p>
+                    </div>
+                    <!-- Image Card -->
+                    <div class="rounded-[2rem] overflow-hidden h-[400px]">
+                        <img src="./assets/images/project_2.png" alt="Completed Work"
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact -->
+    <div class="bg-white pt-24 pb-12">
+        <section id="contact" class="py-12 lg:py-16 bg-brand-dark mx-4 lg:mx-8 rounded-[2rem] md:rounded-[3rem]">
+            <div class="container-custom max-w-6xl mx-auto relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <!-- Left Content -->
+                    <div class="gsap-reveal">
+                        <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">Don't Let Bathroom
+                            Problems Disrupt Your Day</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            Whether it's a minor update or a complete luxury installation, our expert renovators are
+                            just one call away. Reliable, high-end remodeling service today.
+                        </p>
+
+                        <a href="tel:+1234567890"
+                            class="bg-white text-black text-sm font-medium pl-6 pr-2 py-2 rounded-full inline-flex items-center group/btn hover:bg-gray-200 transition-colors mb-10">
+                            Book a Free Call
+                            <span
+                                class="ml-4 bg-[#00C853] text-white rounded-full w-8 h-8 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </a>
+
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-[#00C853] shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Free in-home consultation & estimate</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-[#00C853] shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Premium materials & custom finishes</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-300">
+                                <svg class="w-5 h-5 text-[#00C853] shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Priority scheduling available</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Form (New Design) -->
+                    <div class="gsap-reveal relative lg:-mt-24 lg:-mb-12 lg:-translate-y-8 z-20">
+                        <!-- Overlapping Avatar -->
+                        <img src="./assets/images/about_plumber.png" alt="Consultant"
+                            class="absolute -top-8 -right-8 w-20 h-20 rounded-full border-4 border-[#92E338] object-cover z-20 shadow-lg hidden md:block">
+
+                        <div
+                            class="bg-[#0A160D] border border-white/10 rounded-[2rem] p-8 lg:p-10 shadow-2xl relative z-10">
+
+                            <!-- Top Header -->
+                            <div class="mb-8">
+                                <span
+                                    class="inline-block bg-[#92E338] text-black font-bold text-xs uppercase px-4 py-2 rounded-full mb-4">
+                                    &bull; Get Quote
+                                </span>
+                                <h3 class="text-3xl font-bold text-white mb-2">Fast and obligation-free</h3>
+                                <p class="text-gray-400">We get back to you within two hours on weekdays.</p>
+                            </div>
+
+                            <!-- Highlighted Box -->
+                            <div
+                                class="bg-[#132A18] border border-[#2E5E36] rounded-xl p-4 flex items-start gap-4 mb-8">
+                                <svg class="w-6 h-6 text-[#92E338] shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <p class="text-sm text-gray-200"><strong class="text-[#92E338] font-bold">Take a picture
+                                        of your bathroom</strong> — so you get a faster and more accurate quote.</p>
+                            </div>
+
+                            <!-- Form -->
+                            <form class="space-y-6">
+                                <!-- Name -->
+                                <div>
+                                    <label
+                                        class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Full
+                                        Name</label>
+                                    <input type="text"
+                                        class="w-full px-4 py-3 rounded-xl bg-[#0F2114] border border-white/10 text-white focus:border-[#92E338] focus:ring-1 focus:ring-[#92E338] outline-none transition-all placeholder-gray-500"
+                                        placeholder="Your full name">
+                                </div>
+
+                                <!-- Phone -->
+                                <div>
+                                    <label
+                                        class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Phone</label>
+                                    <input type="tel"
+                                        class="w-full px-4 py-3 rounded-xl bg-[#0F2114] border border-white/10 text-white focus:border-[#92E338] focus:ring-1 focus:ring-[#92E338] outline-none transition-all placeholder-gray-500"
+                                        placeholder="555-0123">
+                                </div>
+
+                                <!-- Task -->
+                                <div>
+                                    <label
+                                        class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Project
+                                        Type</label>
+                                    <div class="relative">
+                                        <select
+                                            class="w-full px-4 py-3 rounded-xl bg-[#0F2114] border border-white/10 text-white focus:border-[#92E338] focus:ring-1 focus:ring-[#92E338] outline-none transition-all appearance-none cursor-pointer">
+                                            <option>Full Bath Remodel</option>
+                                            <option>Tub-to-Shower Conversion</option>
+                                            <option>Vanity & Fixtures Update</option>
+                                            <option>Other / Not Sure</option>
+                                        </select>
+                                        <!-- Custom dropdown arrow -->
+                                        <div
+                                            class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-[#92E338]">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Zip Code -->
+                                <div>
+                                    <label
+                                        class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Zip
+                                        Code</label>
+                                    <input type="text"
+                                        class="w-full px-4 py-3 rounded-xl bg-[#0F2114] border border-white/10 text-white focus:border-[#92E338] focus:ring-1 focus:ring-[#92E338] outline-none transition-all placeholder-gray-500"
+                                        placeholder="90210">
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit"
+                                    class="w-full mt-4 bg-[#92E338] hover:bg-[#82cc32] text-[#0A160D] font-bold text-lg py-4 rounded-xl transition-colors flex items-center justify-center gap-2">
+                                    Send request
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding bg-white pt-12 lg:pt-20">
+        <div class="container-custom">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 gsap-reveal">
+                <p class="text-gray-500 font-medium mb-4 text-sm">/Question & Answer</p>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">Frequently Asked Questions
+                </h2>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Have questions? We've answered some of the most common ones below.
+                </p>
+            </div>
+
+            <!-- FAQ Container -->
+            <div
+                class="max-w-4xl mx-auto bg-white rounded-3xl border border-gray-100 p-6 lg:p-10 shadow-sm gsap-reveal">
+
+                <!-- Question 1 -->
+                <details
+                    class="group border-b border-gray-100 last:border-b-0 py-6 [&_summary::-webkit-details-marker]:hidden">
+                    <summary
+                        class="flex justify-between items-center font-bold text-gray-900 text-lg cursor-pointer list-none hover:text-[#00C853] transition-colors">
+                        <span>How long does a typical project take?</span>
+                        <span
+                            class="transition-transform duration-300 group-open:rotate-180 bg-[#E8F8EE] text-[#00C853] w-8 h-8 rounded-full flex items-center justify-center shrink-0 ml-4">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 pr-12 leading-relaxed">
+                        A typical bath remodel can take anywhere from 2 to 4 weeks depending on the scope of the
+                        project, custom materials, and any necessary plumbing changes. We provide a detailed timeline
+                        during our initial consultation.
+                    </div>
+                </details>
+
+                <!-- Question 2 -->
+                <details
+                    class="group border-b border-gray-100 last:border-b-0 py-6 [&_summary::-webkit-details-marker]:hidden">
+                    <summary
+                        class="flex justify-between items-center font-bold text-gray-900 text-lg cursor-pointer list-none hover:text-[#00C853] transition-colors">
+                        <span>Do you provide free in-home estimates?</span>
+                        <span
+                            class="transition-transform duration-300 group-open:rotate-180 bg-[#E8F8EE] text-[#00C853] w-8 h-8 rounded-full flex items-center justify-center shrink-0 ml-4">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 pr-12 leading-relaxed">
+                        Yes, we offer completely free, no-obligation in-home estimates. One of our expert designers will
+                        visit your home to assess the space, listen to your goals, and provide an accurate quote.
+                    </div>
+                </details>
+
+                <!-- Question 3 -->
+                <details
+                    class="group border-b border-gray-100 last:border-b-0 py-6 [&_summary::-webkit-details-marker]:hidden">
+                    <summary
+                        class="flex justify-between items-center font-bold text-gray-900 text-lg cursor-pointer list-none hover:text-[#00C853] transition-colors">
+                        <span>What's your pricing structure?</span>
+                        <span
+                            class="transition-transform duration-300 group-open:rotate-180 bg-[#E8F8EE] text-[#00C853] w-8 h-8 rounded-full flex items-center justify-center shrink-0 ml-4">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 pr-12 leading-relaxed">
+                        We offer transparent, upfront pricing. The cost depends on the size of the bathroom, materials
+                        selected, and labor required. We have structured packages starting at $10,000 for standard
+                        updates, up to complete luxury remodels.
+                    </div>
+                </details>
+
+                <!-- Question 4 -->
+                <details
+                    class="group border-b border-gray-100 last:border-b-0 py-6 [&_summary::-webkit-details-marker]:hidden">
+                    <summary
+                        class="flex justify-between items-center font-bold text-gray-900 text-lg cursor-pointer list-none hover:text-[#00C853] transition-colors">
+                        <span>Do you handle all plumbing and electrical work?</span>
+                        <span
+                            class="transition-transform duration-300 group-open:rotate-180 bg-[#E8F8EE] text-[#00C853] w-8 h-8 rounded-full flex items-center justify-center shrink-0 ml-4">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 pr-12 leading-relaxed">
+                        Absolutely. We are a full-service remodeling company. Our team includes licensed plumbers,
+                        electricians, and tile artisans so you don't have to hire separate contractors.
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white pt-20 pb-10">
+        <div class="container-custom">
+            <div class="grid md:grid-cols-4 gap-12 border-b border-white/10 pb-12 mb-12">
+                <div class="md:col-span-1">
+                    <a href="#"
+                        class="text-2xl font-extrabold text-white tracking-tighter flex items-center gap-2 mb-6">
+                        <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                            </path>
+                        </svg>
+                        Aquora
+                    </a>
+                    <p class="text-gray-400">Expert bath renovations and remodeling services for homes & businesses.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-brand-accent transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-brand-accent transition-colors">About
+                                Us</a></li>
+                        <li><a href="#services"
+                                class="text-gray-400 hover:text-brand-accent transition-colors">Services</a></li>
+                        <li><a href="#projects"
+                                class="text-gray-400 hover:text-brand-accent transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-brand-accent transition-colors">Bath
+                                Remodels</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-brand-accent transition-colors">Tub
+                                Conversions</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-brand-accent transition-colors">Custom
+                                Fixtures</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-brand-accent transition-colors">Pricing
+                                Plans</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            123 Renovation St, NY 10001
+                        </li>
+                        <li class="text-gray-400 flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-primary mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            (123) 456-7890
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>&copy; 2026 Aquora Bath Renovations. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Main JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
